@@ -13,9 +13,8 @@ def longest_palindrome(**kwargs):
     data, _ = load_data(DATA_PATH, FILE_NAME, SCORES)
     longest_word = ''
     for word in data:
-        if word == word[::-1]:
-            if len(word) > len(longest_word):
-                longest_word = word
+        if word == word[::-1] and len(word) > len(longest_word):
+            longest_word = word
     return longest_word
 
 
