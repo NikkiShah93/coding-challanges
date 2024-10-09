@@ -1,20 +1,12 @@
 ## the gaol is find the letters that never appear doubled
 
 import os
-import json
+## custom module for loading
+from load_data import load_data
 CWD = os.getcwd()
 DATA_PATH = f"{CWD}/data"
 FILE_NAME = 'sowpods.txt'
 SCORES = 'scores.json'
-## loading the main file and the scores
-def load_data(DATA_PATH, FILE_NAME, SCORES):
-    with open(f'{DATA_PATH}/{FILE_NAME}') as f:
-        data = f.readlines()
-        ## cleaning
-        data = [word.lower().strip() for word in data]
-    with open(f'{DATA_PATH}/{SCORES}', 'r') as s:
-        scores = json.load(s)
-    return data, scores
 
 def no_double_letter(**kwargs):
     DATA_PATH, FILE_NAME, SCORES = kwargs['DATA_PATH'], kwargs['FILE_NAME'], kwargs['SCORES']
