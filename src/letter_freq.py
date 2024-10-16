@@ -15,9 +15,9 @@ with open(FILE_PATH) as f:
         letters = set(re.sub('[^a-z]+', '',line.strip().lower()))
         for l in letters:
             if l in letter_dict:
-                letter_dict[l] += 1
+                letter_dict[l] += line.strip().lower().count(l)
             else:
-                letter_dict[l] = 1
+                letter_dict[l] = line.strip().lower().count(l)
 
 ## picking the top five
 top_five = [(l, c) for l, c in sorted(list(letter_dict.items()),key=lambda x: x[1])[-5:]][::-1]
